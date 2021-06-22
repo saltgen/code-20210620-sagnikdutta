@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "fb2cc909-8558-446f-b8f8-74814ea9568a",
+		"name": "bmi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/add-patient-data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Gender\": \"Male\",\n    \"HeightCm\": 180,\n    \"WeightKg\": 40\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/add-patient-data",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"add-patient-data"
+					]
+				},
+				"description": "Optional add patient data endpoint"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/obesity-data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Gender\": \"Male\",\n    \"HeightCm\": 180,\n    \"WeightKg\": 40\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/obesity-data",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"obesity-data"
+					]
+				},
+				"description": "Endpoint for overweight patient data"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/bmi-records",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Gender\": \"Male\",\n    \"HeightCm\": 180,\n    \"WeightKg\": 40\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/bmi-records",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bmi-records"
+					]
+				},
+				"description": "Endpoint for all patient data with bmi and bmi categorization values"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

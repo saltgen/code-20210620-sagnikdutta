@@ -1,0 +1,38 @@
+version: "3.0"
+services:
+  db:
+    image: mongo:latest
+    hostname: db_host
+    container_name: mongo_db
+    environment:
+      - MONGO_INITDB_DATABASE=health_reports
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    volumes:
+      - ./init-db.js:/docker-entrypoint-initdb.d/init-db.js:ro
+    ports:
+      - 27017:27017
+
+  api:
+    build: .
+    image: api_image
+    container_name: flask_api
+    ports: ['5000:5000']
+    expose:
+      - 5000
+    depends_on:
+      - db
+  
+  tests:
+    image: api_image
+    command: dockerize
+      -wait tcp://db:27017 -wait tcp://api:5000 -timeout 10s
+      /bin/sh -c "pytest"
+    container_name: unittests
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    depends_on:
+      - db
+      - api
+
